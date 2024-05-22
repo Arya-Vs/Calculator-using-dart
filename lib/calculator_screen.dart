@@ -1,4 +1,3 @@
-
 import 'package:calculator/button_values.dart';
 import 'package:flutter/material.dart';
 
@@ -19,7 +18,7 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
     return Scaffold(
       appBar: AppBar(title: const Text("Calculator"),
       centerTitle: true,
-      backgroundColor: Colors.orange,
+      backgroundColor: const Color.fromARGB(255, 88, 80, 82),
       ),
       body: SafeArea(
         bottom: false,
@@ -74,7 +73,7 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
         clipBehavior: Clip.hardEdge,
         shape: OutlineInputBorder(
           borderSide: const BorderSide(
-            color: Colors.white24,
+            color: Color.fromARGB(60, 228, 222, 222),
           ),
           borderRadius: BorderRadius.circular(100),
         ),
@@ -157,8 +156,6 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
       number2 = "";
     });
   }
-
-  // ##############
   // converts output to %
   void convertToPercentage() {
     // ex: 434+324
@@ -180,7 +177,6 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
     });
   }
 
-  // ##############
   // clears all output
   void clearAll() {
     setState(() {
@@ -189,8 +185,6 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
       number2 = "";
     });
   }
-
-  // ##############
   // delete one from the end
   void delete() {
     if (number2.isNotEmpty) {
@@ -201,7 +195,6 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
     } else if (number1.isNotEmpty) {
       number1 = number1.substring(0, number1.length - 1);
     }
-
     setState(() {});
   }
 
@@ -215,7 +208,6 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
     if (value != Btn.dot && int.tryParse(value) == null) {
       // operand pressed
       if (operand.isNotEmpty && number2.isNotEmpty) {
-        // TODO calculate the equation before assigning new operand
         calculate();
       }
       operand = value;
@@ -247,7 +239,7 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
   // ########
   Color getBtnColor(value) {
     return [Btn.del, Btn.clr].contains(value)
-        ? Colors.blueGrey
+        ? const Color.fromARGB(255, 15, 15, 15)
         : [
             Btn.per,
             Btn.multiply,
@@ -256,7 +248,7 @@ class _CalculatorScreenState extends State<CalculatorScreen> {
             Btn.divide,
             Btn.calculate,
           ].contains(value)
-            ? Colors.orange
-            : Colors.black87;
+            ? Color.fromARGB(255, 204, 100, 51)
+            : const Color.fromARGB(221, 110, 106, 106);
   }
 }
